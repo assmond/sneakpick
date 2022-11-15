@@ -91,6 +91,7 @@ export class LoginComponent implements OnInit {
           window.location.href = '/';
           //this.router.navigate(['/']);
           this.loginService.loginStatusSubjec.next(true);
+          
         }
       }
       , (error) => {

@@ -63,8 +63,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf()
 				.disable().formLogin().disable().httpBasic().disable().exceptionHandling()
 				.authenticationEntryPoint(new RestAuthenticationEntryPoint()).and().authorizeRequests()
-				.antMatchers("/", "/error", "/api/all", "/api/v1/auth/**", "/oauth2/**", "/api/v1/products/**",
-						"/api/v1/sizes", "/api/v1/brands", "/api/v1/users", "/api/v1/comments/**", "/api/v1/reviews/**",
+				.antMatchers("/","assets/**", "/favicon.ico", "/index.html", "/main.e13573e2a89dc354.js", "/polyfills.dad2d5662e079388.js",
+						"/runtime.17879dd93422ab91.js", "/styles.5c595d31d935fedb.css", "/error", "/api/all", "/api/v1/auth/**", "/oauth2/**", "/api/v1/products/**",
+						"/api/v1/sizes", "/api/v1/brands", "/api/v1/admin", "/api/v1/users", "/api/v1/users/**", "/api/v1/comments/**", "/api/v1/reviews/**",
 						"/api/v1/products/image/**")
 				.permitAll().anyRequest().authenticated().and().oauth2Login().authorizationEndpoint()
 				.authorizationRequestRepository(cookieAuthorizationRequestRepository()).and().redirectionEndpoint()
