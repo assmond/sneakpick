@@ -1,0 +1,43 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row mt-20" style="margin-top : 20px;">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <div class="container text-center">
+            <img src="../../../assets/login.png" width="100" height="100">
+          </div>
+
+          <h1 class="text-center">Login</h1>
+          <form (ngSubmit)="formSubmit()">
+
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input required [(ngModel)]="loginData.email" name="email" type="email" matInput placeholder="Email">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input [(ngModel)]="loginData.password" name="password" required type="password" matInput
+                     placeholder="Password">
+              <mat-hint>The password must be valid</mat-hint>
+            </mat-form-field>
+            <br><br>
+            <div class="container text-center">
+              <button type="submit" mat-raised-button color="primary">Login</button>
+              <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Clear</button>
+            </div>
+          </form>
+        </mat-card>
+        <br>
+        <div class="form-group">
+          <p class="social-login text-center">
+            Or sign in with:
+            <a href="http://localhost:8080/oauth2/authorization/google?redirect_uri=http://localhost:4200/login"
+               class="ml-2">
+              <img alt="Login with Google" src="/assets/image/google.png" class="btn-img" width="30px">
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row mt-20 " style="margin-top : 20px;">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <div class="container text-center">
+            <img src="../../../assets/icon.png" width="100" height="100">
+          </div>
+          <h1 class="text-center">Register</h1>
+          <form (ngSubmit)="formSubmit()" >
+            <mat-form-field class="full-width " appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input required [(ngModel)]="user.firstName" name="nombre" matInput placeholder="First Name">
+            </mat-form-field>    &nbsp;&nbsp;
+
+            <mat-form-field class="full-width " appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input required [(ngModel)]="user.lastName" name="apellido" matInput placeholder="Last name">
+            </mat-form-field>
+            <mat-form-field class="full-width " appearance="outline">
+              <mat-label>Email</mat-label>
+              <input required [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Email">
+            </mat-form-field>    &nbsp;&nbsp;
+            <mat-form-field class="full-width " appearance="outline">
+              <mat-label>Password</mat-label>
+              <input required [(ngModel)]="user.password" name="password" type="password" matInput
+                     placeholder="Password">
+            </mat-form-field>
+            <div class="container text-center">
+              <button mat-raised-button color="primary">Register</button>
+              <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Clear</button>
+            </div>
+          </form>
+        </mat-card>
+        <br><br><br>
+      </div>
+    </div>
+  </div>
+</div>

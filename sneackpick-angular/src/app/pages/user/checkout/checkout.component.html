@@ -1,0 +1,83 @@
+<div class="container page-content" style="margin-top: 20px">
+  <div>
+    <div class="row">
+      <!-- Checkout Info -->
+      <div class="col-lg-8 mb-3">
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header bg-white" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link checkout-header" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                  REVIEW ITEMS <i data-feather="chevron-down" class="mb-1"></i>
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body border-bottom">
+                <div class="row align-items-center border-bottom  pb-2 pt-2" *ngFor="let item of items">
+                  <div class="col-12 col-md-6 mb-2">
+                    <div class="row align-items-center">
+                      <div class="col-4">
+                        <a href="@{/article-detail?id=}+${cartItem.article.id}"><img class="img-fluid"
+                                                                                     src="{{baseUrl}}/api/v1/products/image1/{{item.product.id}}"
+                                                                                     alt="${cartItem.article.title}"></a>
+                      </div>
+                      <div class="col-8">
+                        <a href="/product-details/{{item.product.id}}"
+                           class="h6 bold d-inline-block">{{item.product.name}}</a>
+
+                        <div><small><b>Size</b>: <span>{{item.size}}</span></small></div>
+                        <small><b>Unit Price</b>: $<span>{{item.product.price}}</span></small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 text-right">
+                    <span> 1 unit: </span>
+                    <span class="font-weight-bold text-info">$ <span>{{item.product.price}}</span></span>
+                  </div>
+                </div>
+                <div class="text-center mx-auto">
+                  <small class="counter">TOTAL</small>
+                  <h3 class="font-weight-bold">$
+                    <span>{{totalItems}}</span>
+                  </h3>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between align-items-center mt-3">
+                  <a [routerLink]="'/cart'" class="btn btn-info rounded-pill  "><i data-feather="arrow-left"></i> Edit
+                    cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-header bg-white checkout-header">ORDER SUMMARY</div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span>Cart subtotal</span>
+              <span>$ {{totalItems}}</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Shipping</span>
+              <span>$0.00</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <span>Total</span>
+              <span class="font-weight-bold">$ <span>{{totalItems}} </span></span>
+            </div>
+          </div>
+          <div class="card-footer bg-white border-top-0">
+            <button type="submit" class="btn btn-primary rounded-pill btn-lg btn-block mt-2 mb-3" (click)="placeOrder()">
+              Place your order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

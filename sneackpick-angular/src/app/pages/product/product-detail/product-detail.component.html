@@ -1,0 +1,116 @@
+<div class="container page-content mt-3 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+
+
+          <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button *ngIf="product.image" type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" 
+              style="background-color: black; padding: 6px;"></button>
+              <button *ngIf="product.image2" type="button" data-bs-target="#demo" data-bs-slide-to="1" 
+              style="background-color: black; padding: 6px;"></button>
+              <button *ngIf="product.image3" type="button" data-bs-target="#demo" data-bs-slide-to="2" 
+              style="background-color: black; padding: 6px;"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" *ngIf="product.image">
+                <img src="{{baseUrl}}/api/v1/products/image1/{{product.id}}" alt="Los Angeles" class="d-block"
+                      width="500px" height="500px">
+              </div>
+              <div class="carousel-item" *ngIf="product.image2">
+                <img src="{{baseUrl}}/api/v1/products/image2/{{product.id}}" alt="Chicago" class="d-block"
+                     width="600px" height="500px">
+              </div>
+              <div class="carousel-item" *ngIf="product.image3">
+                <img src="{{baseUrl}}/api/v1/products/image3/{{product.id}}" alt="New York" class="d-block"
+                     width="600px" height="500px">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6 mt-3 mt-md-0">
+          <h2 class="card-title">{{product.name}}</h2>
+          <div class="d-flex align-items-center">
+            <h2 class="price font-weight-bold mr-3">
+              <span>
+                 {{product.price}}$
+              </span>
+            </h2>
+            <br/>
+          </div>
+          <p class="d-none d-lg-block">
+            {{product.description}}
+          </p>
+          <form action="/shopping-cart/add-item" method="post">
+            <input hidden="hidden" value="{{product.id}}">
+            <div class="form-row">
+              <div class="form-group col-sm-6">
+                <label class="font-weight-bold ">Size</label>
+                <select class="form-control" id="size" [(ngModel)]="size" name="size">
+                  <option *ngFor="let size of sizes " [value]="size.value" [text]="size.value"></option>
+                </select>
+              </div>
+            </div>
+            <h3>Select a time period</h3>
+            <div class="row">
+              <div class="form-group col-sm-6">
+                <label class="font-weight-bold" for="fro">From</label><br>
+                <input type="date" id="fro" name="from" [(ngModel)]="from" min="0" max="100" required
+                       class="form-control">
+              </div>
+              <div class="form-group col-sm-6 ">
+                <label class="font-weight-bold" for="to">To</label><br>
+                <input type="date" id="to" name="to" [(ngModel)]="to" min="0" max="100" required class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="form-group col-sm-6  d-flex align-items-end">
+                <button type="submit" class="btn btn-primary btn-block rounded-pill atc-demo" (click)="AddToCart()">Rent
+                  this sneaker
+                </button>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="form-group col-sm-6">
+                <label class="font-weight-bold ">Select stars</label>
+                <select class="form-control" id="rate" [(ngModel)]="rate" name="rate">
+                  <option *ngFor="let rat of rates " [value]="rat" [text]="rat"></option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-6  d-flex align-items-end">
+                <button type="submit" class="btn btn-primary btn-block rounded-pill atc-demo" (click)="rateProduct()">
+                  Rate this sneaker
+                </button>
+              </div>
+            </div>
+          </form>
+          <hr>
+          <div class="pt-1 mb-2"><span class="text-medium">Brand:</span> {{product.brand?.name}}</div>
+          <app-review *ngIf="product.id" [productId]="product.id"></app-review>
+        </div>
+        <br>
+        <app-comments *ngIf="product.id" [productId]="product.id"></app-comments>
+        <h2>Add a comment</h2>
+        <div class="form">
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <input type="text" id="comment" class="form-control" [(ngModel)]="comment" name="comment">
+          </div>
+          <button class="btn btn-primary" (click)="addComment()">Add comment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

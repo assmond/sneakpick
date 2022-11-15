@@ -1,0 +1,56 @@
+<div class="container page-content" style="margin-top: 20px">
+  <input hidden="hidden" id="newqty" name="qty">
+  <input hidden="hidden" id="newid" name="id">
+  <div class="d-flex mt-2">
+    <a [routerLink]="'/'" class="btn btn-info rounded-pill mx-2"><i data-feather="arrow-left"></i> Continue renting</a>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <div class="row border-bottom  pb-2 pt-2" *ngFor="let item of items">
+        <div class="col-12 col-md-6">
+          <div class="row align-items-center">
+            <div class="col-4">
+              <a href="/product-details/{{item.product.id}}">
+                <img class="img-fluid" src="{{baseUrl}}/api/v1/products/image1/{{item.product.id}}"
+                     alt="${cartItem.article.title}"></a>
+            </div>
+            <div class="col-8">
+              <a href="/product-details/{{item.product.id}}" class="h6 bold d-inline-block">{{item.product.name}}</a>
+              <div><i data-feather="check-circle" class="text-success"></i> Available</div>
+              <div><small><b>Size</b>: <span>{{item.size}}</span></small></div>
+              <small><b>Unit Price</b>: $ {{item.product.price}}</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="row align-items-center mt-3">
+            <div class="col-5">
+
+            </div>
+            <div class="col-5 text-right">
+              <span class="font-weight-bold">$ <span> {{item.product.price}}</span></span>
+            </div>
+            <div class="col-2 ">
+              <!--href="/shopping-cart/remove-item/{{item.id}}"-->
+              <a><i class="fa fa-trash" aria-hidden="true" (click)="removeItem(item.id)"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3" *ngIf="numberOfProduct == 0">
+        <div>The cart is empty!</div>
+        <a [routerLink]="'/'" mat-icon-button class="example-icon favorite-icon"
+           aria-label="Example icon-button with heart icon">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_left"></mat-icon>
+          Take your pick</a>
+      </div>
+      <div class="text-center mt-3" *ngIf="numberOfProduct > 0">
+        <small class="counter">TOTAL</small>
+        <h3 class="font-weight-bold">$ <span> {{totalItems}}</span></h3>
+        <a [routerLink]="'/'" class="btn btn-info rounded-pill "><i data-feather="arrow-left"></i> Back to listings</a>
+        <a (click)="checkout()" class="btn btn-primary rounded-pill">Checkout <i data-feather="arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

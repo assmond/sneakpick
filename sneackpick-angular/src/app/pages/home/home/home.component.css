@@ -1,0 +1,17 @@
+.jumbotron {
+  flex: 1 0 auto;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 30%;
+}
+
+.jumbotron h1 {
+  font-size: 6vmin;
+}
+
+.jumbotron h2 {
+  font-size: 5vmin;
+}

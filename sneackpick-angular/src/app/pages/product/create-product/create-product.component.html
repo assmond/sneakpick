@@ -1,0 +1,57 @@
+<div class="row mt20" style="margin-top: 20px">
+  <div class="card col-md-6 offset-md-3 offset-md-3">
+    <div class="row">
+      <h3 class="text-center"> List your Sneakers! </h3>
+      <hr/>
+      <div class="card-body">
+        <form (ngSubmit)="imageUploadAction()" >
+          <div class="form-group">
+            <label> Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="product.name"
+                   name="name" required>
+          </div>
+          <div class="form-group">
+            <label> Price</label>
+            <input type="text" class="form-control" id="price" [(ngModel)]="product.price"
+                   name="price" required>
+          </div>
+          <div class="form-group">
+            <label> Description</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="product.description"
+                   name="description" required>
+          </div>
+
+          <div class="form-group">
+            <label class="font-weight-bold d-block"> Brand</label>
+            <select class="form-control" id="brand"    [(ngModel)]="selectedBrand" name="brand" required>
+              <option  *ngFor="let brand of brands" value="{{brand.id}}" text="{{brand.name}}"></option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="font-weight-bold d-block">Size (US)</label>
+            <select class="form-control" id="size"  [(ngModel)]="selectedSize" name="size" multiple required >
+              <option *ngFor="let size of sizes "  [value]="size.id" text="{{size.value}}" ></option>
+            </select>
+          </div>
+
+          <br/>
+          <div class="form-group">
+            <label for="image1">Image 1</label>
+            <input  id="image1" type="file" class="form-control"  type="file" (change)="onImageUpload($event)"  required>
+          </div>
+          <div class="form-group">
+            <label for="image2">Image 2</label>
+            <input  id="image2" type="file" class="form-control"  type="file" (change)="onImageUpload2($event)" >
+          </div>
+          <div class="form-group">
+            <label for="image3">Image 3</label>
+            <input  id="image3" type="file" class="form-control"  type="file" (change)="onImageUpload3($event)" >
+          </div>
+
+          <button class="btn btn-success" type="submit" >Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

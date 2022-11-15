@@ -1,0 +1,71 @@
+<div class="d-flex flex-column">
+  <div class="row mt20" style="margin-top: 20px">
+    <div class="col-md-10 offset-md-1 text-center">
+      <div class="form-group">
+        <label for="search-text">Search sneakers</label>
+        <input type="email" class="form-control" id="search-text" aria-describedby="search-text"
+               [(ngModel)]="searchText" placeholder="Enter text to search"
+               autofocus>
+      </div>
+      <section class="section py-5 ">
+        <div class="container text-center">
+          <h4 class="font-weight-bold ">Featured products</h4>
+          <div class="featured-items mt-4">
+            <div class="row ">
+              <div class=" col-md-4 card card-product card-featured "
+                   *ngFor="let product of products | sneakFilter: searchText">
+                <div class="card-body">
+                  <div class="name"><span> {{product.name}} </span></div>
+                  <a (click)="productDetails(product.id)">
+                    <img class="card-img-top"
+                         src="{{baseUrl}}/api/v1/products/image1/{{product.id}}"
+                         alt="Card image cap" width="600px" height="400px"></a>
+                  <a (click)="productDetails(product.id)" class="btn text-primary"> product detail</a>
+                  <div class="price"><span> Price: $ {{product.price}} </span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section py-5 bg-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-md-4 mb-2">
+              <div class="text-center features-card">
+                <i data-feather="truck" class="text-info"></i>
+                <h5>Free Shipping</h5>
+                <p></p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mb-2">
+              <div class="text-center features-card">
+                <i data-feather="user" class="text-info"></i>
+                <h5>Support 24/7</h5>
+                <p></p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mb-2">
+              <div class="text-center features-card">
+                <i data-feather="gift" class="text-info"></i>
+                <h5>Gift cards (coming soon!)</h5>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section pt-5">
+        <div class="container text-center">
+          <h4 class="font-weight-bold">Popular brands</h4>
+          <div class="featured-brands mt-3">
+            <img class="img-fluid py-5 px-5" src="assets/image/brands/01.png">
+            <img class="img-fluid py-5 px-5" src="assets/image/brands/04.png">
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+

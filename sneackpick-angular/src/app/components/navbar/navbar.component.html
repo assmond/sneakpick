@@ -1,0 +1,50 @@
+<mat-toolbar color="primary">
+  <a [routerLink]="'/'" class="" arial-label="Example icon-button with menu icon">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+  </a>&nbsp;
+  <span>SneakPick</span>
+  <span class="example-spacer"></span>
+  <a [routerLink]="'/'" class="nav-link" arial-label="Example icon-button with menu icon">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+    Take your pick
+  </a>&nbsp;
+  <a *ngIf="isLoggedIn" [routerLink]="'/users'" class="nav-link" arial-label="Example icon-button with menu icon">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="supervised_user_circle"></mat-icon>
+    Search users
+  </a>&nbsp;
+  <a *ngIf="isLoggedIn && forAdmin" [routerLink]="'/admin'" class=" favorite-icon text-white"
+     aria-label="Example icon-button with heart icon">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="supervised_user_circle"></mat-icon>
+    User </a>&nbsp;
+
+  <a *ngIf="isLoggedIn && forAdmin" [routerLink]="'/products'" class="text-white favorite-icon"
+     aria-label="Example icon-button with heart icon">Products</a>&nbsp;
+
+  <a *ngIf="isLoggedIn" [routerLink]="'/my-sneakers'" class="text-white favorite-icon"
+     aria-label="Example icon-button with heart icon"
+  >List your sneakers</a>&nbsp;
+  <a *ngIf="isLoggedIn" [routerLink]="'/cart'" class="example-icon text-white"
+     aria-label="Example icon-button with heart icon">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add_shopping_cart"></mat-icon>
+    Cart
+  </a>&nbsp;
+  <!--<span class="badge badge-primary badge-pill" style="vertical-align: top;"> {{numberOfProduct}}</span>-->
+
+  <a *ngIf="!isLoggedIn" [routerLink]="'/login'" class="example-icon favorite-icon btn btn-outline-danger text-white"
+     aria-label="Example icon-button with heart icon">
+    Login</a>
+  &nbsp;
+  <a *ngIf="!isLoggedIn" [routerLink]="'/signup'"
+     class="example-icon favorite-icon mr20 ml70 btn btn-warning"
+     aria-label="Example icon-button with heart icon">Register</a>
+  &nbsp;
+
+  <a *ngIf="isLoggedIn" [routerLink]="'/profile'" class="text-white ">My profile</a>&nbsp;
+  <a *ngIf="isLoggedIn" class=" btn btn-primary text-white"
+     aria-label="Example icon-button with heart icon"><span> LoggedIn as:</span>{{ user.firstName }}
+  </a>&nbsp;
+  <a *ngIf="isLoggedIn" (click)="logout()" style="margin-right: 50px" class="btn btn-danger"
+     aria-label="Example icon-button with heart icon"> Logout
+  </a>&nbsp;
+
+</mat-toolbar>

@@ -1,0 +1,30 @@
+<div class="d-flex flex-column">
+  <div class="row mt20" style="margin-top: 20px">
+    <div class="col-md-10 offset-md-1 text-center">
+      <div class="form-group">
+        <label for="search-text">Search user</label>
+        <input type="email" class="form-control" id="search-text" aria-describedby="search-text"
+               [(ngModel)]="searchText" placeholder="Search by lastname or firstname"
+               autofocus>
+      </div>
+      <section class="section py-5 ">
+        <div class="container text-center">
+          <h4 class="font-weight-bold ">Users on the app</h4>
+          <div class="featured-items mt-4">
+            <div class="row ">
+              <div class=" col-md-3 card card-product card-featured mx-1"
+                   *ngFor="let user of users | userFilter: searchText">
+                <div class="card-body">
+                  <div class="name"><span> {{user.firstName}} </span></div>
+                  <div class="name"><span> {{user.lastName}} </span></div>
+                  <div class="name"><span> {{user.email}} </span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+

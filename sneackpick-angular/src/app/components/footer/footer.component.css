@@ -1,0 +1,25 @@
+.footer {
+  background-color:#0c1a1e;
+  border-top:2px solid #dee2e6;
+  padding-top:1rem;
+  bottom: 0;
+}
+.footer .row>[class*=col-] {
+  margin-bottom:2rem
+}
+.footer .list-group-sm .list-group-item {
+  background-color:#0c1a1e;
+  color:rgba(255,255,255,0.6);
+  padding-left:0
+}
+.footer .list-group-sm .list-group-item:not(span):focus,
+.footer .list-group-sm .list-group-item:not(span):hover {
+  background-color:inherit;
+  color:#606ddd;
+  font-weight:700
+}
+
+.footer-input {
+  background-color:inherit;
+  border: 1px solid rgba(255,255,255,0.6);
+}

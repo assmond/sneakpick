@@ -1,0 +1,58 @@
+{
+  "name": "sneackpick-angular",
+  "short_name": "sneackpick-angular",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "author": "valentine",
+  "description": "sneakpick app for renting sneakers",
+  "icons": [
+    {
+      "src": "/assets/image/shop.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image/google.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image/brands/01.png",
+      "type": "image/png"
+    }
+  ,
+    {
+      "src": "/assets/image/brands/02.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image/brands/03.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image/brands/03.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image/brands/05.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image/brands/06.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image/brands/07.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image/background/adidas-background.png",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/assets/image/user/user.png",
+      "type": "image/png"
+    }
+
+
+  ]
+}

@@ -1,0 +1,32 @@
+<div class="row" style="margin-top: 20px;">
+  <h2> Product List</h2>
+</div>
+<button (click)="AddProduct()" class="btn btn-primary" style="margin-left: 10px"> Add new Product</button>
+
+<hr>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> Name</th>
+    <th> Brand</th>
+    <th> Price</th>
+    <th> Available</th>
+    <th> Stock</th>
+    <th> Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td> {{ product.name }} </td>
+    <td> {{ product.brand.name }} </td>
+    <td> {{ product.price }} </td>
+    <td> {{ product.avialable }} </td>
+    <td> {{ product.stock }} </td>
+    <td>
+     <!-- <button (click)="updateProduct(product.id)" class="btn btn-primary"> Update</button>-->
+      <button (click)="deleteProduct(product.id)" class="btn btn-danger" style="margin-left: 10px"> Delete</button>
+      <button (click)="productDetails(product.id)" class="btn btn-primary" style="margin-left: 10px"> View</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
